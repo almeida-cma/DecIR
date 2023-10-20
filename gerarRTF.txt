@@ -1,0 +1,36 @@
+    private void gerarRTF(String nome, String cpf, double rendaAnual, double deducoes, double imposto) throws IOException {
+        RTFEditorKit rtfEditor = new RTFEditorKit();
+        Document doc = rtfEditor.createDefaultDocument();
+
+        try {
+            String content
+                    = "Declaração de Imposto de Renda\n"
+                    + "Nome: " + nome + "\n"
+                    + "CPF: " + cpf + "\n"
+                    + "Renda Anual: R$ " + rendaAnual + "\n"
+                    + "Deduções: R$ " + deducoes + "\n"
+                    + "Imposto Devido: R$ " + imposto;
+
+            doc.insertString(0, content, null);
+
+            try (FileOutputStream fos = new FileOutputStream("ImpostoDeRenda.rtf")) {
+                rtfEditor.write(fos, doc, 0, doc.getLength());
+            }
+
+            JOptionPane.showMessageDialog(null, "RTF gerado com sucesso!");
+
+        } catch (BadLocationException | IOException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao gerar RTF: " + ex.getMessage());
+        }
+
+        if (Desktop.isDesktopSupported()) {
+            try {
+                Desktop.getDesktop().open(new File("ImpostoDeRenda.rtf"));
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, "Erro ao abrir o arquivo RTF: " + ex.getMessage());
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Visualização de arquivo não suportada nesta plataforma.");
+        }
+
+    }
