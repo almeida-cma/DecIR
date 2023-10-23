@@ -1,4 +1,4 @@
-String nome = jTextFieldNome.getText();
+        String nome = jTextFieldNome.getText();
         String cpf = jTextFieldCPF.getText();
         double rendaAnual = Double.parseDouble(jTextFieldRendaAnual.getText());
         double deducoes = Double.parseDouble(jTextFieldDeducoes.getText());
