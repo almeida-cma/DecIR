@@ -10,3 +10,15 @@ Na aba "Identificação", o usuário pode inserir seu nome e CPF. Na aba "Valore
 (rendaAnual - deducoes) * 0.15. 
 
 Após o cálculo, a aplicação cria um arquivo RTF contendo um resumo dos valores inseridos e do imposto calculado e tenta abrir esse arquivo para visualização.
+
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.Document;
+import javax.swing.text.rtf.RTFEditorKit;
