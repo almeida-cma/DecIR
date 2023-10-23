@@ -1,3 +1,5 @@
+// Inserir após código do evento do botão Enviar
+
     private void gerarRTF(String nome, String cpf, double rendaAnual, double deducoes, double imposto) throws IOException {
         RTFEditorKit rtfEditor = new RTFEditorKit();
         Document doc = rtfEditor.createDefaultDocument();
